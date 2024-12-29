@@ -22,7 +22,7 @@ type ntpq struct {
 	server   string
 	srcaddr  string
 	tries    uint8
-    offset   time.Duration 
+	offset   time.Duration 
 	interval time.Duration
 	timeout  time.Duration
 }
@@ -42,7 +42,7 @@ func New(s spec) (checkers.Checker, error) {
 		server:   s.NtpServer,
 		srcaddr:  s.SrcAddr,
 		tries:    s.Tries,
-        offset:   s.Offset.TimeDuration(),
+		offset:   s.Offset.TimeDuration(),
 		interval: s.Interval.TimeDuration(),
 		timeout:  s.Timeout.TimeDuration(),
 	}, nil

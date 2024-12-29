@@ -10,7 +10,7 @@ type spec struct {
 	NtpServer string      `json:"ntpserver"`
 	SrcAddr   string      `json:"srcaddr"`
 	Tries     uint8       `json:"tries"`
-    Offset    th.Duration `json:"offset"`
+	Offset    th.Duration `json:"offset"`
 	Interval  th.Duration `json:"interval"`
 	Timeout   th.Duration `json:"timeout"`
 }

@@ -23,6 +23,12 @@ For monitoring purposes anycastd listens HTTP socket with Prometheus metrics
 endpoint so once routes are removed from the announce SRE's could go and check
 why that happened.
 
+## Compile
+
+```
+go build -ldflags "-s -w -X main.appVersion={{.Version}} -X main.buildTimestamp={{.Date}}" -o anyacstd cmd/anycastd/main.go
+```
+
 ## Configuration
 
 anycastd longs to follow [12factor](https://12factor.net) principles however
@@ -110,6 +116,14 @@ services:
         spec:
           url: tftp://127.0.0.1:69/lpxelinux.0
           tries: 3
+          interval: 100ms
+          timeout: 5s
+      - kind: ntpq
+        spec:
+          ntpserver: 0.ru.pool.ntp.org
+          srcaddr: 192.168.0.1
+          tries: 3
+          offset: 125ms
           interval: 100ms
           timeout: 5s
 metrics:

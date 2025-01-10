@@ -7,20 +7,20 @@ import (
 )
 
 type spec struct {
-	NtpServer string      `json:"ntpserver"`
-	SrcAddr   string      `json:"srcaddr"`
-	Tries     uint8       `json:"tries"`
-	Offset    th.Duration `json:"offset"`
-	Interval  th.Duration `json:"interval"`
-	Timeout   th.Duration `json:"timeout"`
+	Server          string      `json:"server"`
+	SrcAddr         string      `json:"src_addr"`
+	Tries           uint8       `json:"tries"`
+	OffsetThreshold th.Duration `json:"offset_threshold"`
+	Interval        th.Duration `json:"interval"`
+	Timeout         th.Duration `json:"timeout"`
 }
 
 func (s spec) Validate() error {
 	return validation.ValidateStruct(&s,
-		validation.Field(&s.NtpServer, validation.Required, is.Host),
+		validation.Field(&s.Server, validation.Required, is.Host),
 		validation.Field(&s.SrcAddr, validation.Required, is.IPv4),
 		validation.Field(&s.Tries, validation.Required),
-		validation.Field(&s.Offset, validation.Required),
+		validation.Field(&s.OffsetThreshold, validation.Required),
 		validation.Field(&s.Interval, validation.Required),
 		validation.Field(&s.Timeout, validation.Required),
 	)

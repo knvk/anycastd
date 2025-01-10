@@ -5,7 +5,7 @@ go 1.22.7
 toolchain go1.23.2
 
 require (
-    github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
+	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
 	github.com/beevik/ntp v1.4.3
 	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
 	github.com/kelseyhightower/envconfig v1.4.0
